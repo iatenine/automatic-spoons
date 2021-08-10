@@ -1,3 +1,8 @@
+// Dropdowm menu for exhange rates
+$( "#exchangeRateOptions" ).selectmenu()
+
+
+
 // Must be YYYY-MM-DD format
 
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
