@@ -1,6 +1,7 @@
 // Dropdowm menu for exhange rates
 // ????
 // $("#exchangeRateOptions").selectmenu;
+// All currencies pulled from this array
 const currencies = [
   { name: "US Dollar", code: "USD" },
   { name: "Euro", code: "EUR" },
@@ -8,17 +9,6 @@ const currencies = [
   { name: "Australian Dollar", code: "AUD" },
 ];
 
-// Must be YYYY-MM-DD format
-const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
-const sampleTickerSymbols = [
-  "AAPL",
-  "GOOG",
-  "MSFT",
-  "FB",
-  "TSLA",
-  "AMZN",
-  "NFLX",
-];
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 const twelvedataAppId = "37679fd95e8b4db69d4e464f3991b8a5";
 
