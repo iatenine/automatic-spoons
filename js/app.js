@@ -11,9 +11,9 @@ const handleCurrencyData = (event) => {
   console.log(date);
   var comparisonCurrency = $("#exchangeRateOptions").val();
   console.log(comparisonCurrency);
-  $("#currencyView").each(function () {
+  $("#currencyView").submit(function (event) {
     //create populate append list item
-    $("#currencyView").append("<li>"Date:"</li>")
+    $("#currencyView").append("<li></li>");
     $(this).text();
   });
   console.log(event);
