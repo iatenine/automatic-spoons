@@ -1,19 +1,15 @@
 // Dropdowm menu for exhange rates
 // ????
 // $("#exchangeRateOptions").selectmenu;
+const currencies = [
+  { name: "US Dollar", code: "USD" },
+  { name: "Euro", code: "EUR" },
+  { name: "Japanese Yen", code: "JPY" },
+  { name: "Australian Dollar", code: "AUD" },
+];
 
 // Must be YYYY-MM-DD format
 const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
-const sampleCurrencies = [
-  "EUR",
-  "GBP",
-  "JPY",
-  "CAD",
-  "AUD",
-  "CHF",
-  "CNY",
-  "DKK",
-];
 const sampleTickerSymbols = [
   "AAPL",
   "GOOG",
@@ -36,6 +32,12 @@ const handleStockData = (data) => {
   // Need to access keys individually to get the values
   console.log("name: ", data.name);
   console.log("close: ", data.close);
+};
+
+const addOption = (currencyCode, currencyName) => {
+  const opt = $("<option>" + currencyCode + " - " + currencyName + "</option>");
+  const select = $("#exchangeRateOptions");
+  select.append(opt);
 };
 
 // Fetch currency data asynchronously
@@ -73,5 +75,9 @@ const getStocks = async (ticker) => {
   });
 };
 
-getCurrencies(sampleDates[2], sampleCurrencies[3]);
-getStocks(sampleTickerSymbols[3]);
+currencies.forEach(function (currency) {
+  addOption(currency.code, currency.name);
+});
+// Leave commented to keep api request rates low
+// getCurrencies(sampleDates[2], sampleCurrencies[3]);
+// getStocks(sampleTickerSymbols[3]);
