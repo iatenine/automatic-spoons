@@ -35,7 +35,7 @@ const handleStockData = (data) => {
 const getCurrencies = async (date, comparisonCurrency) => {
   $.get(
     "https://openexchangerates.org/api/historical/" + date + ".json",
-    { app_id: appId },
+    { app_id: appId, mode: "no-cors" },
     function (data) {
       handleCurrencyData(data.rates[comparisonCurrency]);
     }
@@ -43,6 +43,46 @@ const getCurrencies = async (date, comparisonCurrency) => {
 };
 
 // Fetch ticker data asynchronously
-const getStocks = async (date, ticker) => {};
+const getStocks = async (ticker) => {
+  // $.get(
+  //   "https://www.styvio.com/api/aapl",
+  //   { mode: "same-origin" },
+  //   function (data) {
+  //     console.log(data);
+  //     // handleCurrencyData(data.rates[comparisonCurrency]);
+  //   }
+  // );
+  // return;
+  // Create fetch request
+  // const request = new Request("https://www.styvio.com/api/aapl", {
+  //   method: "GET",
+  //   mode: "no-cors",
+  // });
+  // // Send request
+  // return fetch(request)
+  //   .then(function (response) {
+  //     return JSON.parse(response);
+  //   })
+  //   .then(function (data) {
+  //     console.log(data);
+  //     // handleStockData(data);
+  //   });
+
+  var settings = {
+    origin: "https://www.styvio.com",
+    url: "https://www.styvio.com/api/AAPL",
+    method: "GET",
+    timeout: 0,
+    mode: "no-cors",
+    processData: false,
+    mimeType: "multipart/form-data",
+    contentType: false,
+  };
+
+  $.ajax(settings).done(function (response) {
+    console.log(response);
+  });
+};
 
 getCurrencies(sampleDates[2], sampleCurrencies[3]);
+getStocks("aapl");
