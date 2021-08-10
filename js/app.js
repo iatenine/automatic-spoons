@@ -1,5 +1,6 @@
 // Dropdowm menu for exhange rates
-$("#exchangeRateOptions").selectmenu();
+// ????
+// $("#exchangeRateOptions").selectmenu;
 
 // Must be YYYY-MM-DD format
 const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
@@ -23,6 +24,7 @@ const sampleTickerSymbols = [
   "NFLX",
 ];
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
+const twelvedataAppId = "37679fd95e8b4db69d4e464f3991b8a5";
 
 // Logic to handle currency data once fetched
 const handleCurrencyData = (data) => {
@@ -31,7 +33,9 @@ const handleCurrencyData = (data) => {
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
-  console.log("stock data: " + data);
+  // Need to access keys individually to get the values
+  console.log("name: ", data.name);
+  console.log("close: ", data.close);
 };
 
 // Fetch currency data asynchronously
@@ -51,45 +55,23 @@ function onDateChanged(date) {
 
 // Fetch ticker data asynchronously
 const getStocks = async (ticker) => {
-  // $.get(
-  //   "https://www.styvio.com/api/aapl",
-  //   { mode: "same-origin" },
-  //   function (data) {
-  //     console.log(data);
-  //     // handleCurrencyData(data.rates[comparisonCurrency]);
-  //   }
-  // );
-  // return;
-  // Create fetch request
-  // const request = new Request("https://www.styvio.com/api/aapl", {
-  //   method: "GET",
-  //   mode: "no-cors",
-  // });
-  // // Send request
-  // return fetch(request)
-  //   .then(function (response) {
-  //     return JSON.parse(response);
-  //   })
-  //   .then(function (data) {
-  //     console.log(data);
-  //     // handleStockData(data);
-  //   });
-
+  console.log(ticker);
   var settings = {
-    origin: "https://www.styvio.com",
-    url: "https://www.styvio.com/api/AAPL",
+    url:
+      "https://api.twelvedata.com/quote?symbol=" +
+      ticker +
+      "&apikey=" +
+      twelvedataAppId,
     method: "GET",
     timeout: 0,
-    mode: "no-cors",
-    processData: false,
-    mimeType: "multipart/form-data",
-    contentType: false,
   };
 
   $.ajax(settings).done(function (response) {
-    console.log(response);
+    // for debugging, un-comment to see all avaiable keys
+    // console.log(response);
+    handleStockData(response);
   });
 };
 
 getCurrencies(sampleDates[2], sampleCurrencies[3]);
-getStocks("aapl");
+getStocks(sampleTickerSymbols[3]);
