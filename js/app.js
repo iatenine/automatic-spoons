@@ -1,5 +1,5 @@
 // Dropdowm menu for exhange rates
-$( "#exchangeRateOptions" ).selectmenu()
+$("#exchangeRateOptions").selectmenu();
 
 
 
@@ -51,3 +51,6 @@ const getCurrencies = async (date, comparisonCurrency) => {
 const getStocks = async (date, ticker) => {};
 
 getCurrencies(sampleDates[2], sampleCurrencies[3]);
+
+
+//
