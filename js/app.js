@@ -1,3 +1,8 @@
+// Dropdowm menu for exhange rates
+$( "#exchangeRateOptions" ).selectmenu()
+
+
+
 // Must be YYYY-MM-DD format
 const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
 const sampleCurrencies = [

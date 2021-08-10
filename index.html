@@ -18,15 +18,34 @@
     <h1>Currency Exchange App</h1>
   </header>
 
-  <form>
+
+
+  <form id="exchangeRateCard">
     <input type="date">
-    </input>
-    <input type="radio" name='Currency' value="EUR">EUR</input>
-    <input type="radio" name='Currency' value="GBP">GBP</input>
-    <input type="radio" name='Currency' value="JPY">JPY</input>
-    <!-- Save Button -->
-    <input type="button" value="Save" />
+    <fieldset>
+      <label for="exchangeRateOptions">Select a currency you want to compare:</label>
+      <select name="exhangeRateOptions" id="exchangeRateOptions">
+        <option id="EUR" class="exchageSymbols">EUR - <p class = "ExchangeNames">Euro</p> </option> 
+        <option id="GBP" class="exchageSymbols">GBP - <p class = "exchangeNames">British Pound Sterling</p></option>
+        <option id="JPY" class="exchageSymbols">JPY - <p class = "exchangeNames">Japanese Yen</p></option>
+        <option id="CAD" class="exchageSymbols">CAD - <p class = "exchangeNames">Canadian Dollar</p></option>
+        <option id="AUD" class="exchageSymbols">AUD - <p class = "exchangeNames">Australian Dollar</p></option>
+        <option id="CHF" class="exchageSymbols">CHF - <p class = "exchangeNames">Swiss Franc</p></option>
+        <option id="CNY" class="exchageSymbols">CNY - <p class = "exchangeNames">Chinese Yaun</p></option>
+        <option id="DKK" class="exchageSymbols">DKK - <p class = "exchangeNames">Danish Krone</p></option>
+        <option id="AED" class="exchageSymbols">AED - <p class = "exchangeNames">United Arab Emirates Dirham</p></option>
+        <option id="AFN" class="exchageSymbols">AFN - <p class = "exchangeNames">AFghan Afghani</p></option>
+        <option id="ALL" class="exchageSymbols">ALL - <p class = "exchangeNames">Albanian Lek</p></option>
+        <option id="AMD" class="exchageSymbols">AMD - <p class="exchangeNames">Armenian Dram</p></option>
+        <option id="ANG" class="exchageSymbols">ANG - <p class="exchangeNames">Netherlands Antillean Guilder</p></option>
+        <option id="AOA" class="exchageSymbols">AOA - <p class="exchangeNames">Angolan Kwanza</p> </option>
+        <option id="ARS" class="exchageSymbols">ARS - <p class="exchangeNames">Argentine Peso</p> </option>
+        <option id="AWG" class="exchageSymbols">AWG - <p class="exchangeNames">Aruban Florin</p></option>
+      </select>
+    </fieldset>  
   </form>
+
+  
 
   <h2>History</h2>
   <ul id='currencyView'>
@@ -49,7 +68,7 @@
       voluptas tempore dicta voluptates reiciendis, id totam nobis? Distinctio praesentium reiciendis est! Similique!
     </p>
   </div>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="./js/app.js"></script>
 </body>
