@@ -7,17 +7,22 @@ const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 
 // Logic to handle currency data once fetched
 const handleCurrencyData = (event) => {
-  $("li").each(function () {
+  var date = $(".dateInput").val();
+  console.log(date);
+  var comparisonCurrency = $("#exchangeRateOptions").val();
+  console.log(comparisonCurrency);
+  $("#currencyView").each(function () {
+    //create populate append list item
+    $("#currencyView").append("<li>"Date:"</li>")
     $(this).text();
   });
   console.log(event);
 };
 
+function onOptionChanged(selection) {
+  console.log(selection);
+}
 //declare global variables referencing user input
-var date = $(".dateInput").val();
-console.log(date);
-var comparisonCurrency = $(".currencyInput").val();
-console.log(comparisonCurrency);
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
