@@ -21,7 +21,6 @@ const sampleTickerSymbols = [
 ];
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 
-
 // Logic to handle currency data once fetched
 const handleCurrencyData = (data) => {
   console.log("currency data: " + data);
@@ -29,8 +28,8 @@ const handleCurrencyData = (data) => {
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
-    console.log("stock data: " + data);
-}
+  console.log("stock data: " + data);
+};
 
 // Fetch currency data asynchronously
 const getCurrencies = async (date, comparisonCurrency) => {
@@ -44,8 +43,6 @@ const getCurrencies = async (date, comparisonCurrency) => {
 };
 
 // Fetch ticker data asynchronously
-const getStocks = async (date, ticker) => {
+const getStocks = async (date, ticker) => {};
 
-}
-
-getCurrencies(sampleDates[2], sampleCurrencies[0]);
+getCurrencies(sampleDates[2], sampleCurrencies[3]);
