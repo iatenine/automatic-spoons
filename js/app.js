@@ -1,7 +1,5 @@
 // Dropdowm menu for exhange rates
-$( "#exchangeRateOptions" ).selectmenu()
-
-
+$("#exchangeRateOptions").selectmenu();
 
 // Must be YYYY-MM-DD format
 
@@ -36,6 +34,10 @@ const getCurrencies = async (date, comparisonCurrency) => {
     }
   );
 };
+
+function onDateChanged(date) {
+  console.log(date);
+}
 
 // Fetch ticker data asynchronously
 const getStocks = async (date, ticker) => {};
