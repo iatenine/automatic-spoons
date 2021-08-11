@@ -270,13 +270,9 @@ const getStocks = async (ticker) => {
   });
 };
 
-//EVENT HANDLERS
-
 currencies.forEach(function (currency) {
   addOption(currency.code, currency.nameC);
 });
-
-$("#save-btn").on("click", getCurrencies);
 
 $(document).ready(function () {
   $("#stockIndicators").on("change", function () {
@@ -285,3 +281,10 @@ $(document).ready(function () {
 });
 
 loadState();
+function clearCurrencies(event) {
+  event.preventDefault();
+  $("#currency-table-body").remove();
+}
+//EVENT HANDLERS
+$(".clear-btn").on("click", clearCurrencies);
+$("#save-btn").on("click", getCurrencies);
