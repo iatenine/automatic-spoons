@@ -18,12 +18,14 @@ const handleCurrencyData = (event) => {
   console.log(date);
   var comparisonCurrency = $("#exchangeRateOptions").val();
   console.log(comparisonCurrency);
-  $("#currencyView").submit(function (event) {
+  function submit() {
     //create populate append list item
-    $("#currencyView").append("<li></li>");
-    $(this).text();
-  });
+    $("#currencyView").append(
+      `<li id=list-item>Currency: ${comparisonCurrency}</li>`
+    );
+  }
   console.log(event);
+  submit();
 };
 
 function onOptionChanged(selection) {
@@ -79,12 +81,10 @@ const getStocks = async (ticker) => {
   });
 };
 
-<<<<<<< HEAD
-getCurrencies(sampleDates[2], sampleCurrencies[3]);
+// getCurrencies(sampleDates[2], sampleCurrencies[3]);
 getStocks(sampleTickerSymbols[3]);
 //EVENT HANDLERS
 $("#save-btn").on("click", handleCurrencyData);
-=======
 currencies.forEach(function (currency) {
   addOption(currency.code, currency.name);
 });
@@ -95,4 +95,3 @@ $("#save-btn").on("click", handleCurrencyData);
 // (should be triggered by a button click really anyways)
 // getCurrencies(sampleDates[2], sampleCurrencies[3]);
 // getStocks(sampleTickerSymbols[3]);
->>>>>>> 82b41fc6c1eb6fcb111a7db5872637b74631b025
