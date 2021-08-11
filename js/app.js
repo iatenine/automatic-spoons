@@ -1,42 +1,47 @@
 // Dropdowm menu for exhange rates
 // ????
 // $("#exchangeRateOptions").selectmenu;
-
-
-// Must be YYYY-MM-DD format
-const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
-const sampleCurrencies = [
-  "EUR",
-  "GBP",
-  "JPY",
-  "CAD",
-  "AUD",
-  "CHF",
-  "CNY",
-  "DKK",
+// All currencies pulled from this array
+const currencies = [
+  { name: "US Dollar", code: "USD" },
+  { name: "Euro", code: "EUR" },
+  { name: "Japanese Yen", code: "JPY" },
+  { name: "Australian Dollar", code: "AUD" },
 ];
-const sampleTickerSymbols = [
-  "AAPL",
-  "GOOG",
-  "MSFT",
-  "FB",
-  "TSLA",
-  "AMZN",
-  "NFLX",
-];
+
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 const twelvedataAppId = "37679fd95e8b4db69d4e464f3991b8a5";
 
 // Logic to handle currency data once fetched
-const handleCurrencyData = (data) => {
-  console.log("currency data: " + data);
+const handleCurrencyData = (event) => {
+  var date = $(".dateInput").val();
+  console.log(date);
+  var comparisonCurrency = $("#exchangeRateOptions").val();
+  console.log(comparisonCurrency);
+  $("#currencyView").submit(function (event) {
+    //create populate append list item
+    $("#currencyView").append("<li></li>");
+    $(this).text();
+  });
+  console.log(event);
 };
+
+function onOptionChanged(selection) {
+  console.log(selection);
+}
+//declare global variables referencing user input
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
   // Need to access keys individually to get the values
   console.log("name: ", data.name);
   console.log("close: ", data.close);
+};
+
+const addOption = (currencyCode, currencyName) => {
+  const opt = $("<option>" + currencyCode + " - " + currencyName + "</option>");
+  const select = $("#exchangeRateOptions");
+  select.append(opt);
 };
 
 // Fetch currency data asynchronously
@@ -74,5 +79,13 @@ const getStocks = async (ticker) => {
   });
 };
 
-getCurrencies(sampleDates[2], sampleCurrencies[3]);
-getStocks(sampleTickerSymbols[3]);
+currencies.forEach(function (currency) {
+  addOption(currency.code, currency.name);
+});
+
+$("#save-btn").on("click", handleCurrencyData);
+
+// Leave commented to keep api request rates low
+// (should be triggered by a button click really anyways)
+// getCurrencies(sampleDates[2], sampleCurrencies[3]);
+// getStocks(sampleTickerSymbols[3]);
