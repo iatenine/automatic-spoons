@@ -212,6 +212,7 @@ const addOption = (currencyCode, currencyName) => {
 
 // Fetch currency data asynchronously
 const getCurrencies = async () => {
+  document.getElementById("theExchangeRate").style.display = 'block';
   date = $(".dateInput").val();
   comparisonCurrency = $("#exchangeRateOptions").val().split(" ")[0];
   console.log(date);
