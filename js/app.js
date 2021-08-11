@@ -2,7 +2,6 @@
 // ????
 // $("#exchangeRateOptions").selectmenu;
 
-
 // All currencies pulled from this array
 const currencies = [
   { code: "USD", nameC: "US Dollar" },
@@ -176,18 +175,18 @@ var comparisonCurrency = $("#exchangeRateOptions").val();
 var date = $(".dateInput").val();
 
 // Logic to handle currency data once fetched
-const handleCurrencyData = (event) => {
-  // var date = $(".dateInput").val();
-  // // console.log(date);
-  // var comparison = $("#exchangeRateOptions").val();
-  // console.log(comparison);
+const handleCurrencyData = (response) => {
   function submit() {
     //create populate append list item
-    $("#currencyView").append(
-      `<li id=list-item>Currency: ${comparisonCurrency}</li>`
+    $("#currency-table-body").append(
+      `<tr>
+      <th>${date}</th>
+      <td>USD-${comparisonCurrency}</td>
+      <td>$${(1 / response).toFixed(3)} per ${comparisonCurrency}</td>
+      </tr>`
     );
   }
-  console.log(event);
+  console.log("response: ", response);
   submit();
 };
 
@@ -209,7 +208,6 @@ const addOption = (currencyCode, currencyName) => {
   select.append(opt);
 };
 
-
 // Fetch currency data asynchronously
 const getCurrencies = async () => {
   date = $(".dateInput").val();
@@ -220,7 +218,7 @@ const getCurrencies = async () => {
     "https://openexchangerates.org/api/historical/" + date + ".json",
     { app_id: appId, mode: "no-cors" },
     function (data) {
-      console.log(data.rates);
+      console.log(data.rates[comparisonCurrency]);
       handleCurrencyData(data.rates[comparisonCurrency]);
     }
   );
@@ -260,7 +258,6 @@ currencies.forEach(function (currency) {
 });
 
 $("#save-btn").on("click", getCurrencies);
-
 
 // Leave commented to keep api request rates low
 // (should be triggered by a button click really anyways)
