@@ -1,12 +1,7 @@
 // Dropdowm menu for exhange rates
-<<<<<<< HEAD
 // ????
 // $("#exchangeRateOptions").selectmenu;
-=======
-$("#exchangeRateOptions").selectmenu();
 
-
->>>>>>> currency-exchange-styling
 
 // Must be YYYY-MM-DD format
 const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
@@ -80,10 +75,4 @@ const getStocks = async (ticker) => {
 };
 
 getCurrencies(sampleDates[2], sampleCurrencies[3]);
-<<<<<<< HEAD
 getStocks(sampleTickerSymbols[3]);
-=======
-
-
-//
->>>>>>> currency-exchange-styling
