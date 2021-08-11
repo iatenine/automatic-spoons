@@ -18,8 +18,6 @@
     <h1>Currency Exchange App</h1>
   </header>
 
-
-
   <!-- Exchange Rate Card -->
   <form id="cardFormat">
     <fieldset>
@@ -27,19 +25,20 @@
         <label><strong>Select a Date: </strong></label>
         <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
       </div>
-      <label for="exchangeRateOptions"><strong>Select a currency you want to compare to the USD - US Dollar: </strong></label>
+      <label for="exchangeRateOptions"><strong>Select a currency you want to compare to the USD - US Dollar:
+        </strong></label>
       <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
       <!-- Save Button -->
-      <input id="save-btn" class="btn btn-primary" type="button" value="Save"  />
+      <input id="save-btn" class="btn btn-primary" type="button" value="Save" />
     </fieldset>
 
 
     <div id="theExchangeRate">
       <p id="dollarText">One US Dollar =</p>
       <h4 id="exchangeRateNumbers"></h4>
-    </div>  
+    </div>
 
 
   </form>
