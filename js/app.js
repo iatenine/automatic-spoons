@@ -185,6 +185,8 @@ const handleCurrencyData = (response) => {
       <td>$${(1 / response).toFixed(3)} per ${comparisonCurrency}</td>
       </tr>`
     );
+
+    $("#exchangeRateNumbers").text(`$${(1 / response).toFixed(3)}`);
   }
   console.log("response: ", response);
   submit();
