@@ -1,7 +1,7 @@
 // Dropdowm menu for exhange rates
 // ????
 // $("#exchangeRateOptions").selectmenu;
-$("#exchangeRateOptions").selectmenu();
+
 
 
 
@@ -231,6 +231,7 @@ const addOption = (currencyCode, currencyName) => {
   select.append(opt);
 };
 
+
 // Fetch currency data asynchronously
 const getCurrencies = async (date, comparisonCurrency) => {
   $.get(
@@ -276,6 +277,7 @@ currencies.forEach(function (currency) {
 });
 
 $("#save-btn").on("click", handleCurrencyData);
+
 
 // Leave commented to keep api request rates low
 // (should be triggered by a button click really anyways)
