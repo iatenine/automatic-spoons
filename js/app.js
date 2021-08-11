@@ -266,21 +266,11 @@ const getStocks = async (ticker) => {
   });
 };
 
-<<<<<<< HEAD
-
-getCurrencies(sampleDates[2], sampleCurrencies[3]);
-
-getStocks(sampleTickerSymbols[3]);
-
-
-
-=======
 // getCurrencies(sampleDates[2], sampleCurrencies[3]);
 // getStocks(sampleTickerSymbols[3]);
 
 //EVENT HANDLERS
 $("#save-btn").on("click", handleCurrencyData);
->>>>>>> main
 currencies.forEach(function (currency) {
   addOption(currency.code, currency.nameC);
 });
