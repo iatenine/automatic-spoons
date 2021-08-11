@@ -8,7 +8,7 @@
   box-sizing: border-box;
 }
 
-#exchangeRateCard {
+#cardFormat {
   margin: 50px;
   padding: 70px;
   display: flex;
@@ -22,7 +22,7 @@
 } */
 
 #theExchangeRate {
-  display: block;
+  display: none;
 }
 
 #dollarText {
@@ -30,8 +30,6 @@
   padding-top: 40px;
 }
 
-#currencySaveBtn {
-  background-color: #0d6efd;
-  color: white;
-  padding: 5px;
+#save-btn {
+  margin-left: 10px;
 }

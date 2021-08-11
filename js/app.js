@@ -2,7 +2,6 @@
 // ????
 // $("#exchangeRateOptions").selectmenu;
 
-
 // All currencies pulled from this array
 const currencies = [
   { code: "USD", nameC: "US Dollar" },
@@ -176,31 +175,51 @@ var comparisonCurrency = $("#exchangeRateOptions").val();
 var date = $(".dateInput").val();
 
 // Logic to handle currency data once fetched
-const handleCurrencyData = (event) => {
-  // var date = $(".dateInput").val();
-  // // console.log(date);
-  // var comparison = $("#exchangeRateOptions").val();
-  // console.log(comparison);
+const handleCurrencyData = (response) => {
   function submit() {
     //create populate append list item
-    $("#currencyView").append(
-      `<li id=list-item>Currency: ${comparisonCurrency}</li>`
+    $("#currency-table-body").append(
+      `<tr>
+      <th>${date}</th>
+      <td>USD-${comparisonCurrency}</td>
+      <td>$${(1 / response).toFixed(3)} per ${comparisonCurrency}</td>
+      </tr>`
     );
+
+    $("#exchangeRateNumbers").text(`$${(1 / response).toFixed(3)}`);
   }
-  console.log(event);
+  console.log("response: ", response);
   submit();
 };
-
-function onOptionChanged(selection) {
-  console.log(selection);
-}
 //declare global variables referencing user input
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
+  // console.log("data: ", data);
   // Need to access keys individually to get the values
-  console.log("name: ", data.name);
-  console.log("close: ", data.close);
+
+  // Save Name, Symbol, price, change, percent change, 52 week high, 52 week low
+  const name = data.name;
+  const symbol = data.symbol;
+  let price = data.close;
+  let change = data.change;
+  let percentChange = data.percent_change;
+  let FiftyTwoWeekHigh = data.fifty_two_week.high;
+  let FiftyTwoWeekLow = data.fifty_two_week.low;
+
+  price = parseFloat(price).toFixed(2);
+  change = parseFloat(change).toFixed(2);
+  percentChange = parseFloat(percentChange).toFixed(2);
+  FiftyTwoWeekHigh = parseFloat(FiftyTwoWeekHigh).toFixed(2);
+  FiftyTwoWeekLow = parseFloat(FiftyTwoWeekLow).toFixed(2);
+
+  $("#company-name").text(name);
+  $("#ticker-symbol").text(symbol);
+
+  $("#key-indicators").text(`$${price}`);
+
+  $("#52-week-high").text("52 Week High $" + FiftyTwoWeekHigh);
+  $("#52-week-low").text("52 Week Low $" + FiftyTwoWeekLow);
 };
 
 const addOption = (currencyCode, currencyName) => {
@@ -209,26 +228,19 @@ const addOption = (currencyCode, currencyName) => {
   select.append(opt);
 };
 
-
 // Fetch currency data asynchronously
 const getCurrencies = async () => {
+  document.getElementById("theExchangeRate").style.display = 'block';
   date = $(".dateInput").val();
   comparisonCurrency = $("#exchangeRateOptions").val().split(" ")[0];
-  console.log(date);
-  console.log(comparisonCurrency);
   $.get(
     "https://openexchangerates.org/api/historical/" + date + ".json",
     { app_id: appId, mode: "no-cors" },
     function (data) {
-      console.log(data.rates);
       handleCurrencyData(data.rates[comparisonCurrency]);
     }
   );
 };
-
-function onDateChanged(date) {
-  console.log(date);
-}
 
 // Fetch ticker data asynchronously
 const getStocks = async (ticker) => {
@@ -244,14 +256,9 @@ const getStocks = async (ticker) => {
   };
 
   $.ajax(settings).done(function (response) {
-    // for debugging, un-comment to see all avaiable keys
-    // console.log(response);
     handleStockData(response);
   });
 };
-
-// getCurrencies(sampleDates[2], sampleCurrencies[3]);
-// getStocks(sampleTickerSymbols[3]);
 
 //EVENT HANDLERS
 
@@ -261,8 +268,8 @@ currencies.forEach(function (currency) {
 
 $("#save-btn").on("click", getCurrencies);
 
-
-// Leave commented to keep api request rates low
-// (should be triggered by a button click really anyways)
-// getCurrencies(sampleDates[2], sampleCurrencies[3]);
-// getStocks(sampleTickerSymbols[3]);
+$(document).ready(function () {
+  $("#stockIndicators").on("change", function () {
+    getStocks(this.value);
+  });
+});
