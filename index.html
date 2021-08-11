@@ -22,7 +22,11 @@
 
   <!-- Exchange Rate Card -->
   <form id="exchangeRateCard">
+
     <!-- <input id='date-selector' type="date" onchange=onDateChanged(value)> -->
+
+    <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
+
     <fieldset>
       <label for="exchangeRateOptions">Select a currency you want to compare to the USD - US Dollar:</label>
       <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
@@ -32,10 +36,15 @@
       <input id="currencySaveBtn" type="button" value="Save" />
     </fieldset>
 
+
     <div id="theExchangeRate">
       <p id="dollarText">One US Dollar =</p>
       <h4 id="exchangeRateNumbers"></h4>
     </div>  
+
+
+    <!-- Save Button -->
+    <input type="button" value="Save" id ="save-btn"/>
 
   </form>
 
