@@ -1,7 +1,1 @@
-const currencies = [
-  { USD: "US Dollar" },
-  { EUR: "Euro" },
-  { GBP: "British Pound" },
-  { JPY: "Japanese Yen" },
-  { CHF: "Swiss Franc" },
-];
+const currencies = [{ name: "US Dollar", code: "USD" }];
