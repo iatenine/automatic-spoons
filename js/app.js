@@ -230,7 +230,7 @@ const addOption = (currencyCode, currencyName) => {
 
 // Fetch currency data asynchronously
 const getCurrencies = async () => {
-  document.getElementById("theExchangeRate").style.display = 'block';
+  document.getElementById("theExchangeRate").style.display = "block";
   date = $(".dateInput").val();
   comparisonCurrency = $("#exchangeRateOptions").val().split(" ")[0];
   $.get(
@@ -260,16 +260,20 @@ const getStocks = async (ticker) => {
   });
 };
 
-//EVENT HANDLERS
-
 currencies.forEach(function (currency) {
   addOption(currency.code, currency.nameC);
 });
-
-$("#save-btn").on("click", getCurrencies);
 
 $(document).ready(function () {
   $("#stockIndicators").on("change", function () {
     getStocks(this.value);
   });
 });
+
+function clearCurrencies(event) {
+  event.preventDefault();
+  $("#currency-table-body").remove();
+}
+//EVENT HANDLERS
+$(".clear-btn").on("click", clearCurrencies);
+$("#save-btn").on("click", getCurrencies);
