@@ -33,7 +33,6 @@ const currencies = [
   { name: "Euro", code: "EUR" },
   { name: "Japanese Yen", code: "JPY" },
   { name: "Australian Dollar", code: "AUD" },
-
 ];
 
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
@@ -114,7 +113,7 @@ getStocks(sampleTickerSymbols[3]);
 
 
 currencies.forEach(function (currency) {
-  addOption(currency.code, currency.name);
+  addOption(currency.code, currency.nameC);
 });
 
 $("#save-btn").on("click", handleCurrencyData);
@@ -123,4 +122,3 @@ $("#save-btn").on("click", handleCurrencyData);
 // (should be triggered by a button click really anyways)
 // getCurrencies(sampleDates[2], sampleCurrencies[3]);
 // getStocks(sampleTickerSymbols[3]);
-
