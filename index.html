@@ -9,7 +9,7 @@
   <title>Currency Exchange App</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/style.css" />
 </head>
 
 <body>
@@ -18,7 +18,7 @@
     <h1>Currency Exchange App</h1>
   </header>
 
-    
+
 
   <!-- Exchange Rate Card -->
   <form id="exchangeRateCard">
@@ -33,25 +33,21 @@
         <!-- Populated dynamically with currencies -->
       </select>
       <!-- Save Button -->
-      <input id="currencySaveBtn" type="button" value="Save" />
+      <input id="save-btn" class="btn btn-primary" type="button" value="Save" />
     </fieldset>
 
 
     <div id="theExchangeRate">
       <p id="dollarText">One US Dollar =</p>
-      <h4 id="exchangeRateNumbers"></h4>
-    </div>  
-
-
-    <!-- Save Button -->
-    <input type="button" value="Save" id ="save-btn"/>
+      <h4 id="exchangeRateNumbers">placeholder</h4>
+    </div>
 
   </form>
 
 
-       
 
-<!-- Currency history -->
+
+  <!-- Currency history -->
 
   <!-- Added container - Rows / Columns    -->
   <div class="container-fluid">
@@ -70,7 +66,7 @@
               <th scope="col">Date</th>
               <th scope="col">Currency</th>
               <th scope="col">Exchange</th>
-              <th scope="col"><input type="button" value="Save" /></th>
+              <th scope="col">Header</th>
             </tr>
           </thead>
           <tbody id="currency-table-body">
