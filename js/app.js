@@ -3,30 +3,6 @@
 // $("#exchangeRateOptions").selectmenu;
 
 
-
-
-
-// Must be YYYY-MM-DD format
-const sampleDates = ["2017-07-23", "2017-07-24", "2012-05-12", "2020-06-13"];
-const sampleCurrencies = [
-  "EUR",
-  "GBP",
-  "JPY",
-  "CAD",
-  "AUD",
-  "CHF",
-  "CNY",
-  "DKK",
-];
-const sampleTickerSymbols = [
-  "AAPL",
-  "GOOG",
-  "MSFT",
-  "FB",
-  "TSLA",
-  "AMZN",
-  "NFLX",
-]
 // All currencies pulled from this array
 const currencies = [
   { code: "USD", nameC: "US Dollar" },
