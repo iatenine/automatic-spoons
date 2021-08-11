@@ -24,7 +24,7 @@
     <input id='date-selector' type="date" onchange=onDateChanged(value)>
     <fieldset>
       <label for="exchangeRateOptions">Select a currency you want to compare to the USD - US Dollar:</label>
-      <select name="exhangeRateOptions" id="exchangeRateOptions">
+      <select name="exhangeRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
     </fieldset>
