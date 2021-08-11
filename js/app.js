@@ -170,18 +170,19 @@ const currencies = [
 
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 const twelvedataAppId = "37679fd95e8b4db69d4e464f3991b8a5";
+var comparisonCurrency = $("#exchangeRateOptions").val();
+var date = $(".dateInput").val();
 
 // Logic to handle currency data once fetched
 const handleCurrencyData = (event) => {
+  console.log(data.rates[comparisonCurrency]);
   var date = $(".dateInput").val();
   console.log(date);
-  var comparisonCurrency = $("#exchangeRateOptions").val();
-  console.log(comparisonCurrency);
+  var comparison = $("#exchangeRateOptions").val();
+  console.log(comparison);
   function submit() {
     //create populate append list item
-    $("#currencyView").append(
-      `<li id=list-item>Currency: ${comparisonCurrency}</li>`
-    );
+    $("#currencyView").append(`<li id=list-item>Currency: ${comparison}</li>`);
   }
   console.log(event);
   submit();
@@ -211,6 +212,7 @@ const getCurrencies = async (date, comparisonCurrency) => {
     "https://openexchangerates.org/api/historical/" + date + ".json",
     { app_id: appId, mode: "no-cors" },
     function (data) {
+      console.log(data.rates[comparisonCurrency]);
       handleCurrencyData(data.rates[comparisonCurrency]);
     }
   );
