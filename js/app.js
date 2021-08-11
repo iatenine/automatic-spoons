@@ -284,6 +284,7 @@ loadState();
 function clearCurrencies(event) {
   event.preventDefault();
   $("#currency-table-body").remove();
+  localStorage.removeItem("searchResults");
 }
 //EVENT HANDLERS
 $(".clear-btn").on("click", clearCurrencies);
