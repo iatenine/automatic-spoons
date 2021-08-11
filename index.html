@@ -25,11 +25,11 @@
 
     <!-- <input id='date-selector' type="date" onchange=onDateChanged(value)> -->
 
-    <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
+    <input id='date-selector' class="dateInput" type="date">
 
     <fieldset>
       <label for="exchangeRateOptions">Select a currency you want to compare to the USD - US Dollar:</label>
-      <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
+      <select name="exchageRateOptions" id="exchangeRateOptions">
         <!-- Populated dynamically with currencies -->
       </select>
       <!-- Save Button -->
@@ -70,23 +70,20 @@
     <!-- Stock indicators -->
     <div class="form-group">
       <label for="stockIndcators">Stock Indicator</label>
-      <select class="form-control" id="stockIndcators">
-        <option>DOW</option>
-        <option>NASDAQ</option>
-        <option>S&P500</option>
+      <select class="form-control" id="stockIndicators">
+        <option value='dow'>DOW</option>
+        <option value="ndaq">NASDAQ</option>
+        <option value="spx">S&P500</option>
       </select>
     </div>
     <!-- Card -->
 
     <div class="card">
-      <h3>Company Name</h3>
-      <h4>Ticker Symbol</h4>
-      Key indicators (price, change, etc)
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt hic vero odit illo delectus alias minima
-        culpa,
-        voluptas tempore dicta voluptates reiciendis, id totam nobis? Distinctio praesentium reiciendis est!
-        Similique!
-      </p>
+      <h3 id='company-name'>Company Name</h3>
+      <h4 id='ticker-symbol'>Ticker Symbol</h4>
+      <p id='key-indicators'>Key indicators (price, change, etc)</p>
+      <p id='52-week-high'>52 week high</p>
+      <p id='52-week-low'>52 week low</p>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
