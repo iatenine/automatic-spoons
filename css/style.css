@@ -2,6 +2,14 @@
   background-color: yellow;
 } */
 
+#header {
+  font-family: "Gugi", cursive;
+}
+
+h3 {
+  font-family: "Mukta", sans-serif;
+}
+
 * {
   margin: 0px;
   padding: 0px;
