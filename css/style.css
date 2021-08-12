@@ -21,6 +21,10 @@
  
 } */
 
+.form-group {
+  width: ;
+}
+
 #theExchangeRate {
   display: none;
 }
@@ -32,4 +36,17 @@
 
 #save-btn {
   margin-left: 10px;
+}
+
+.seperateIndex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.card {
+  width: 25%;
+  margin: 20px;
+
+  box-shadow: 5px 0px 10px;
 }

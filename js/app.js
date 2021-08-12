@@ -214,22 +214,26 @@ function addTableRow(searchObject) {
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
+  console.log(data);
   // Store index as an object to keep data organized
   const index = {
     name: data.name,
     symbol: data.symbol,
-    price: parseFloat(price).toFixed(2),
+    price: parseFloat(data.close).toFixed(2),
     change: parseFloat(data.change).toFixed(2),
-    percentChange: parseFloat(percentChange).toFixed(2),
-    fiftyTwoWeekHigh: parseFloat(FiftyTwoWeekHigh).toFixed(2),
-    fiftyTwoWeekLow: parseFloat(FiftyTwoWeekLow).toFixed(2),
+    percentChange: parseFloat(data.percent_change).toFixed(2),
+    fiftyTwoWeekHigh: parseFloat(data.fifty_two_week.high).toFixed(2),
+    fiftyTwoWeekLow: parseFloat(data.fifty_two_week.low).toFixed(2),
   };
 
   $("#company-name").text(index.name);
   $("#ticker-symbol").text(index.symbol);
-  $("#key-indicators").text(`$${index.price}`);
-  $("#52-week-high").text("52 Week High $" + index.fiftyTwoWeekHigh);
-  $("#52-week-low").text("52 Week Low $" + index.fiftyTwoWeekLow);
+  $("#key-indicators").html(
+    `Key Indicators:<br>Price: $${index.price} <br>
+     Change: $${index.change}, ${index.percentChange}%`
+  );
+  $("#52-week-high").text("52 Week High: $" + index.fiftyTwoWeekHigh);
+  $("#52-week-low").text("52 Week Low: $" + index.fiftyTwoWeekLow);
 };
 
 const addOption = (currencyCode, currencyName) => {
