@@ -168,6 +168,7 @@ const currencies = [
   { code: "ZMW", nameC: "Zambian Kwacha" },
   { code: "ZWL", nameC: "Zimbabwean Dollar" },
 ];
+const searchResults = [];
 
 const appId = "2fb30b4e6ff34fed962b343830bf09e1";
 const twelvedataAppId = "37679fd95e8b4db69d4e464f3991b8a5";
@@ -176,50 +177,59 @@ var date = $(".dateInput").val();
 
 // Logic to handle currency data once fetched
 const handleCurrencyData = (response) => {
-  function submit() {
-    //create populate append list item
-    $("#currency-table-body").append(
-      `<tr>
-      <th>${date}</th>
-      <td>USD-${comparisonCurrency}</td>
-      <td>$${(1 / response).toFixed(3)} per ${comparisonCurrency}</td>
-      </tr>`
-    );
-
-    $("#exchangeRateNumbers").text(`$${(1 / response).toFixed(3)}`);
-  }
-  console.log("response: ", response);
-  submit();
+  saveResponse(response);
+  $("#exchangeRateNumbers").text(`$${(1 / response).toFixed(3)}`);
 };
-//declare global variables referencing user input
+
+function saveResponse(response) {
+  const searchObject = {
+    Date: date,
+    Currency: comparisonCurrency,
+    ExchangeRate: (1 / response).toFixed(3),
+  };
+  searchResults.push(searchObject);
+  localStorage.setItem("searchResults", JSON.stringify(searchResults));
+  addTableRow(searchObject);
+}
+
+function loadState() {
+  const history = JSON.parse(localStorage.getItem("searchResults"));
+  if (history) {
+    history.forEach(function (searchResult) {
+      searchResults.push(searchResult);
+      addTableRow(searchResult);
+    });
+  }
+}
+
+function addTableRow(searchObject) {
+  $("#currency-table-body").append(
+    `<tr>
+      <th>${searchObject.Date}</th>
+      <td>USD-${searchObject.Currency}</td>
+      <td>$${searchObject.ExchangeRate} per ${searchObject.Currency}</td>
+      </tr>`
+  );
+}
 
 // Logic to handle ticker data once fetched
 const handleStockData = (data) => {
-  // console.log("data: ", data);
-  // Need to access keys individually to get the values
+  // Store index as an object to keep data organized
+  const index = {
+    name: data.name,
+    symbol: data.symbol,
+    price: parseFloat(price).toFixed(2),
+    change: parseFloat(data.change).toFixed(2),
+    percentChange: parseFloat(percentChange).toFixed(2),
+    fiftyTwoWeekHigh: parseFloat(FiftyTwoWeekHigh).toFixed(2),
+    fiftyTwoWeekLow: parseFloat(FiftyTwoWeekLow).toFixed(2),
+  };
 
-  // Save Name, Symbol, price, change, percent change, 52 week high, 52 week low
-  const name = data.name;
-  const symbol = data.symbol;
-  let price = data.close;
-  let change = data.change;
-  let percentChange = data.percent_change;
-  let FiftyTwoWeekHigh = data.fifty_two_week.high;
-  let FiftyTwoWeekLow = data.fifty_two_week.low;
-
-  price = parseFloat(price).toFixed(2);
-  change = parseFloat(change).toFixed(2);
-  percentChange = parseFloat(percentChange).toFixed(2);
-  FiftyTwoWeekHigh = parseFloat(FiftyTwoWeekHigh).toFixed(2);
-  FiftyTwoWeekLow = parseFloat(FiftyTwoWeekLow).toFixed(2);
-
-  $("#company-name").text(name);
-  $("#ticker-symbol").text(symbol);
-
-  $("#key-indicators").text(`$${price}`);
-
-  $("#52-week-high").text("52 Week High $" + FiftyTwoWeekHigh);
-  $("#52-week-low").text("52 Week Low $" + FiftyTwoWeekLow);
+  $("#company-name").text(index.name);
+  $("#ticker-symbol").text(index.symbol);
+  $("#key-indicators").text(`$${index.price}`);
+  $("#52-week-high").text("52 Week High $" + index.fiftyTwoWeekHigh);
+  $("#52-week-low").text("52 Week Low $" + index.fiftyTwoWeekLow);
 };
 
 const addOption = (currencyCode, currencyName) => {
@@ -270,9 +280,11 @@ $(document).ready(function () {
   });
 });
 
+loadState();
 function clearCurrencies(event) {
   event.preventDefault();
   $("#currency-table-body").remove();
+  localStorage.removeItem("searchResults");
 }
 //EVENT HANDLERS
 $(".clear-btn").on("click", clearCurrencies);
