@@ -23,16 +23,17 @@
   <form id="cardFormat">
     <fieldset>
       <div id="dateExchangeSelector">
-        <label><strong>Select a Date: </strong></label>
+        <label id="dateSelectorText"><strong>Select a Date: </strong></label>
+        <label id="smallDateSelectorText"><strong>Date:</strong></label>
         <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
       </div>
-      <label for="exchangeRateOptions"><strong>Select a currency you want to compare to the USD - US Dollar:
-        </strong></label>
+      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency you want to compare to the USD - US Dollar:</strong></label>
+      <label id="smallExchangeRateText"><strong>Compare USD to:</strong></label>
       <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
       <!-- Save Button -->
-      <input id="save-btn" class="btn btn-primary" type="button" value="Save" />
+      <input id="save-btn" class="btn btn-primary" type="button" value="Save"/>
     </fieldset>
 
 
@@ -52,16 +53,16 @@
   <div class="container-fluid">
 
     <!-- Added table with date, currency, exchange, save & reset btn -->
-    <div class="col-lg" id="cardFormat">
+    <div  class="col-lg" id="cardFormat" >
       <table class="table table-hover" id="currency-history-table">
         <thead>
-          <tr>
-            <th scope="col">Date</th>
-            <th scope="col">Currency</th>
-            <th scope="col">Exchange</th>
+          <tr >
+            <th class="smallTextHistory" scope="col">Date</th>
+            <th class="smallTextHistory" scope="col">Currency</th>
+            <th class="smallTextHistory"  scope="col">Exchange</th>
           </tr>
         </thead>
-        <tbody id="currency-table-body">
+        <tbody id="currency-table-body" class="smallTextHistory">
         </tbody>
       </table>
     </div>
