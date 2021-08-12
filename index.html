@@ -17,7 +17,7 @@
   <header class="container-fluid text-center text-white bg-primary p-2">
     <h1>Currency Exchange App</h1>
   </header>
- 
+
 
   <!-- Exchange Rate Card -->
   <form id="cardFormat">
@@ -26,7 +26,8 @@
         <label><strong>Select a Date: </strong></label>
         <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
       </div>
-      <label for="exchangeRateOptions"><strong>Select a currency you want to compare to the USD - US Dollar: </strong></label>
+      <label for="exchangeRateOptions"><strong>Select a currency you want to compare to the USD - US Dollar:
+        </strong></label>
       <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
@@ -68,29 +69,29 @@
 
     <div class="seperateIndex">
       <div class="card" id="Dow">
-        <h3 id='company-name'>DOW</h3>
-        <h4 id='ticker-symbol'>Ticker Symbol</h4>
-        <p id='key-indicators'>Key indicators (price, change, etc)</p>
-        <p id='52-week-high'>52 week high</p>
-        <p id='52-week-low'>52 week low</p>
+        <h3 id='dow-company-name'>DOW</h3>
+        <h4 id='dow-ticker-symbol'>Ticker Symbol</h4>
+        <p id='dow-key-indicators'>Key indicators (price, change, etc)</p>
+        <p id='dow-52-week-high'>52 week high</p>
+        <p id='dow-52-week-low'>52 week low</p>
       </div>
-        <div class="card" id="Nasdaq">
-        <h3 id='company-name'>Nasdaq</h3>
-        <h4 id='ticker-symbol'>Ticker Symbol</h4>
-        <p id='key-indicators'>Key indicators (price, change, etc)</p>
-        <p id='52-week-high'>52 week high</p>
-        <p id='52-week-low'>52 week low</p>
+      <div class="card" id="Nasdaq">
+        <h3 id='ndaq-company-name'>Nasdaq</h3>
+        <h4 id='ndaq-ticker-symbol'>Ticker Symbol</h4>
+        <p id='ndaq-key-indicators'>Key indicators (price, change, etc)</p>
+        <p id='ndaq-52-week-high'>52 week high</p>
+        <p id='ndaq-52-week-low'>52 week low</p>
       </div>
-        <div class="card" id="S&P">
-        <h3 id='company-name'>S&P500</h3>
-        <h4 id='ticker-symbol'>Ticker Symbol</h4>
-        <p id='key-indicators'>Key indicators (price, change, etc)</p>
-        <p id='52-week-high'>52 week high</p>
-        <p id='52-week-low'>52 week low</p>
-      </div>  
+      <div class="card" id="S&P">
+        <h3 id='sp-company-name'>S&P500</h3>
+        <h4 id='sp-ticker-symbol'>Ticker Symbol</h4>
+        <p id='sp-key-indicators'>Key indicators (price, change, etc)</p>
+        <p id='sp-52-week-high'>52 week high</p>
+        <p id='sp-52-week-low'>52 week low</p>
+      </div>
 
 
-    </div>  
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/app.js"></script>

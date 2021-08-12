@@ -226,15 +226,26 @@ const handleStockData = (data) => {
     fiftyTwoWeekLow: parseFloat(data.fifty_two_week.low).toFixed(2),
   };
 
-  $("#company-name").text(index.name);
-  $("#ticker-symbol").text(index.symbol);
-  $("#key-indicators").html(
+  let prefix = "dow";
+  if (index.symbol == "NDAQ") {
+    prefix = "ndaq";
+  } else if (index.symbol == "SPX") {
+    prefix = "sp";
+  }
+
+  populateCard(prefix, index);
+};
+
+function populateCard(prefix, index) {
+  $(`#${prefix}-company-name`).text(index.name);
+  $(`#${prefix}-ticker-symbol`).text(index.symbol);
+  $(`#${prefix}-key-indicators`).html(
     `Key Indicators:<br>Price: $${index.price} <br>
      Change: $${index.change}, ${index.percentChange}%`
   );
-  $("#52-week-high").text("52 Week High: $" + index.fiftyTwoWeekHigh);
-  $("#52-week-low").text("52 Week Low: $" + index.fiftyTwoWeekLow);
-};
+  $(`#${prefix}-52-week-high`).text("52 Week High: $" + index.fiftyTwoWeekHigh);
+  $(`#${prefix}-52-week-low`).text("52 Week Low: $" + index.fiftyTwoWeekLow);
+}
 
 const addOption = (currencyCode, currencyName) => {
   const opt = $("<option>" + currencyCode + " - " + currencyName + "</option>");
@@ -293,3 +304,7 @@ function clearCurrencies(event) {
 //EVENT HANDLERS
 $(".clear-btn").on("click", clearCurrencies);
 $("#save-btn").on("click", getCurrencies);
+
+getStocks("dow");
+getStocks("spx");
+getStocks("ndaq");
