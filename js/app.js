@@ -325,10 +325,11 @@ loadState();
 function clearCurrencies(event) {
   event.preventDefault();
   $("#currency-table-body").remove();
-  localStorage.removeItem("searchResults");
+  localStorage.clear();
+  location.reload();
 }
 //EVENT HANDLERS
-$(".clear-btn").on("click", clearCurrencies);
+$("#clearBtn").on("click", clearCurrencies);
 $("#save-btn").on("click", getCurrencies);
 $("#date-selector").on("change", updateButton);
 
