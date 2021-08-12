@@ -281,16 +281,29 @@ $(document).ready(function () {
   updateButton();
 });
 
+// Disables save button unless a valid date is selected
 function updateButton() {
   const saveBtn = $("#save-btn");
-  const dateArr = date.split("-");
-  
-  console.log(dateArr);
-  console.log(new Date().getFullYear());
-  console.log(date < Date.now());
+  date = $(".dateInput").val();
+  saveBtn.prop("disabled", true);
+  saveBtn.val("Select a Date");
   if (!date) {
-    saveBtn.prop("disabled", true);
+    return;
   }
+
+  const dateArr = date.split("-");
+  const now = new Date();
+  const currDate = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
+
+  for (let x = 0; x < dateArr.length; x += 1) {
+    if (currDate[x] < parseInt(dateArr[x])) {
+      return;
+    }
+  }
+
+  // Enable if all previous checks were passed
+  saveBtn.prop("disabled", false);
+  saveBtn.val("Save");
 }
 
 loadState();
