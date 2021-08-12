@@ -282,7 +282,33 @@ $(document).ready(function () {
   $("#stockIndicators").on("change", function () {
     getStocks(this.value);
   });
+  updateButton();
 });
+
+// Disables save button unless a valid date is selected
+function updateButton() {
+  const saveBtn = $("#save-btn");
+  date = $(".dateInput").val();
+  saveBtn.prop("disabled", true);
+  saveBtn.val("Select a Date");
+  if (!date) {
+    return;
+  }
+
+  const dateArr = date.split("-");
+  const now = new Date();
+  const currDate = [now.getFullYear(), now.getMonth() + 1, now.getDate()];
+
+  for (let x = 0; x < dateArr.length; x += 1) {
+    if (currDate[x] < parseInt(dateArr[x])) {
+      return;
+    }
+  }
+
+  // Enable if all previous checks were passed
+  saveBtn.prop("disabled", false);
+  saveBtn.val("Save");
+}
 
 loadState();
 function clearCurrencies(event) {
@@ -293,3 +319,4 @@ function clearCurrencies(event) {
 //EVENT HANDLERS
 $(".clear-btn").on("click", clearCurrencies);
 $("#save-btn").on("click", getCurrencies);
+$("#date-selector").on("change", updateButton);
