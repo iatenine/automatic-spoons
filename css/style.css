@@ -25,12 +25,14 @@ h3 {
   box-shadow: 5px 0px 10px;
 }
 
-/* #CurrencySelectors {
- 
-} */
+#dateSelectorText,
+#exchangeRateText {
+  display: block;
+}
 
-.form-group {
-  width: ;
+#smallDateSelectorText,
+#smallExchangeRateText {
+  display: none;
 }
 
 #theExchangeRate {
@@ -57,4 +59,38 @@ h3 {
   margin: 20px;
 
   box-shadow: 5px 0px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .seperateIndex {
+    flex-direction: column;
+  }
+  .card {
+    width: 90%;
+  }
+  #smallExchangeRateText,
+  #smallDateSelectorText {
+    display: block;
+  }
+  #dateSelectorText,
+  #exchnageRateText {
+    display: none;
+  }
+  #save-btn {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  #exchangeRateOptions,
+  #date-selector,
+  #save-btn {
+    width: 50%;
+  }
+  #cardFormat {
+    padding: 5%;
+  }
+  .smallTextHistory {
+    font-size: 75%;
+  }
 }
