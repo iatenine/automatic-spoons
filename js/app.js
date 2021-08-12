@@ -328,7 +328,7 @@ function clearCurrencies(event) {
   localStorage.removeItem("searchResults");
 }
 //EVENT HANDLERS
-$(".clear-btn").on("click", clearCurrencies);
+$("#clearBtn").on("click", clearCurrencies);
 $("#save-btn").on("click", getCurrencies);
 $("#date-selector").on("change", updateButton);
 
