@@ -232,8 +232,8 @@ const handleStockData = (data) => {
     `Key Indicators:<br>Price: $${index.price} <br>
      Change: $${index.change}, ${index.percentChange}%`
   );
-  $("#52-week-high").text("52 Week High $" + index.fiftyTwoWeekHigh);
-  $("#52-week-low").text("52 Week Low $" + index.fiftyTwoWeekLow);
+  $("#52-week-high").text("52 Week High: $" + index.fiftyTwoWeekHigh);
+  $("#52-week-low").text("52 Week Low: $" + index.fiftyTwoWeekLow);
 };
 
 const addOption = (currencyCode, currencyName) => {
