@@ -278,7 +278,20 @@ $(document).ready(function () {
   $("#stockIndicators").on("change", function () {
     getStocks(this.value);
   });
+  updateButton();
 });
+
+function updateButton() {
+  const saveBtn = $("#save-btn");
+  const dateArr = date.split("-");
+  
+  console.log(dateArr);
+  console.log(new Date().getFullYear());
+  console.log(date < Date.now());
+  if (!date) {
+    saveBtn.prop("disabled", true);
+  }
+}
 
 loadState();
 function clearCurrencies(event) {
@@ -289,3 +302,4 @@ function clearCurrencies(event) {
 //EVENT HANDLERS
 $(".clear-btn").on("click", clearCurrencies);
 $("#save-btn").on("click", getCurrencies);
+$("#date-selector").on("change", updateButton);
