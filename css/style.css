@@ -27,7 +27,7 @@ h3 {
 
 #dateSelectorText,
 #exchangeRateText {
-  display: block;
+  display: inline;
 }
 
 #smallDateSelectorText,
@@ -70,7 +70,7 @@ h3 {
   }
   #smallExchangeRateText,
   #smallDateSelectorText {
-    display: block;
+    display: inline;
   }
   #dateSelectorText,
   #exchnageRateText {
