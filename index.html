@@ -9,10 +9,10 @@
   <title>Currency Exchange App</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Shanti&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@600&family=Shanti&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="./css/style.css" />
 </head>
@@ -28,17 +28,21 @@
   <form id="cardFormat">
     <fieldset>
       <div id="dateExchangeSelector">
-        <label id="dateSelectorText"><strong>Select a Date: </strong></label>
-        <label id="smallDateSelectorText"><strong>Date:</strong></label>
+        <label id="dateSelectorText"><strong>Select a Date: </strong>
+        </label>
+        <label id="smallDateSelectorText">
+          <strong>Date:</strong>
+        </label>
         <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
       </div>
-      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency you want to compare to the USD - US Dollar:</strong></label>
+      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency to compare to the USD -
+          US Dollar:</strong></label>
       <label id="smallExchangeRateText"><strong>Compare USD to:</strong></label>
-      <select name="exchageRateOptions" id="exchangeRateOptions" onchange=onOptionChanged(value)>
+      <select name="exchageRateOptions" id="exchangeRateOptions" class="dropdown w-50" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
-      <!-- Save Button -->
-      <input id="save-btn" class="btn btn-primary" type="button" value="Save"/>
+      <!-- Convert Button -->
+      <input id="save-btn" class="btn btn-primary float-end" type="button" value="Convert" />
     </fieldset>
 
 
@@ -56,48 +60,51 @@
 
   <!-- Added container - Rows / Columns    -->
   <div class="container-fluid">
-    
+
 
     <!-- Added table with date, currency, exchange, save & reset btn -->
     <div class="col-lg" id="cardFormat">
-      
+
       <table class="table table-hover" id="currency-history-table">
         <thead>
-          <tr >
+          <tr>
             <th class="smallTextHistory" scope="col">Date</th>
             <th class="smallTextHistory" scope="col">Currency</th>
-            <th class="smallTextHistory"  scope="col">Exchange</th>
+            <th class="smallTextHistory" scope="col">Exchange</th>
           </tr>
         </thead>
         <tbody id="currency-table-body" class="smallTextHistory">
         </tbody>
-        
+
       </table>
-      <div><button id= "clearBtn" class="float-end btn btn-primary">Clear History</button></div>
+      <div><button id="clearBtn" class="float-end btn btn-primary">Clear History</button></div>
     </div>
 
 
     <div class="seperateIndex">
       <div class="card" id="Dow">
         <div class="mb-2 bg-primary text-white text-center">
-        <h3 id='dow-company-name'>DOW</h3>
-        <h4 id='dow-ticker-symbol'>Ticker Symbol</h4></div>
+          <h3 id='dow-company-name'>DOW</h3>
+          <h4 id='dow-ticker-symbol'>Ticker Symbol</h4>
+        </div>
         <p id='dow-key-indicators'>Key indicators (price, change, etc)</p>
         <p id='dow-52-week-high'>52 week high</p>
         <p id='dow-52-week-low'>52 week low</p>
       </div>
       <div class="card" id="Nasdaq">
         <div class="mb-2 bg-primary text-white text-center">
-        <h3 id='ndaq-company-name'>Nasdaq</h3>
-        <h4 id='ndaq-ticker-symbol'>Ticker Symbol</h4></div>
+          <h3 id='ndaq-company-name'>Nasdaq</h3>
+          <h4 id='ndaq-ticker-symbol'>Ticker Symbol</h4>
+        </div>
         <p id='ndaq-key-indicators'>Key indicators (price, change, etc)</p>
         <p id='ndaq-52-week-high'>52 week high</p>
         <p id='ndaq-52-week-low'>52 week low</p>
       </div>
       <div class="card" id="S&P">
         <div class="mb-2 bg-primary text-white text-center">
-        <h3 id='sp-company-name'>S&P500</h3>
-        <h4 id='sp-ticker-symbol'>Ticker Symbol</h4></div>
+          <h3 id='sp-company-name'>S&P500</h3>
+          <h4 id='sp-ticker-symbol'>Ticker Symbol</h4>
+        </div>
         <p id='sp-key-indicators'>Key indicators (price, change, etc)</p>
         <p id='sp-52-week-high'>52 week high</p>
         <p id='sp-52-week-low'>52 week low</p>
