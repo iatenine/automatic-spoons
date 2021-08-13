@@ -318,7 +318,7 @@ function updateButton() {
 
   // Enable if all previous checks were passed
   saveBtn.prop("disabled", false);
-  saveBtn.val("Save");
+  saveBtn.val("Convert");
 }
 
 loadState();
