@@ -250,6 +250,7 @@ function populateCard(prefix, index) {
 const addOption = (currencyCode, currencyName) => {
   const opt = $("<option>" + currencyCode + " - " + currencyName + "</option>");
   const select = $("#exchangeRateOptions");
+  select.addClass("dropdown-item");
   select.append(opt);
 };
 
