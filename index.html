@@ -35,16 +35,14 @@
         </label>
         <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
       </div>
-      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency you want to compare to the USD -
+      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency to compare to the USD -
           US Dollar:</strong></label>
       <label id="smallExchangeRateText"><strong>Compare USD to:</strong></label>
-      <select name="exchageRateOptions" id="exchangeRateOptions" class="dropdown w-75" onchange=onOptionChanged(value)>
+      <select name="exchageRateOptions" id="exchangeRateOptions" class="dropdown w-50" onchange=onOptionChanged(value)>
         <!-- Populated dynamically with currencies -->
       </select>
-      <!-- Save Button -->
-      <div>
-        <input id="save-btn" class="btn btn-primary float-end" type="button" value="Convert" />
-      </div>
+      <!-- Convert Button -->
+      <input id="save-btn" class="btn btn-primary float-end" type="button" value="Convert" />
     </fieldset>
 
 
