@@ -25,6 +25,13 @@ h3 {
   box-shadow: 5px 0px 10px;
 }
 
+#exchangeRateOptions {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: gray;
+  border-width: 1px;
+}
+
 #dateSelectorText,
 #exchangeRateText {
   display: inline;
