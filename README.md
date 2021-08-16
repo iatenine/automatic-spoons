@@ -10,4 +10,4 @@
 
 ###### Live link to application: https://iatenine.github.io/currency-exchange-app/
 
-###### Screenshot:
+###### Screenshot: https://github.com/iatenine/currency-exchange-app/blob/main/FullsizeScreenshot.png
