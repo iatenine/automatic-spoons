@@ -25,35 +25,36 @@
 
 
   <!-- Exchange Rate Card -->
-  <form id="cardFormat">
-    <fieldset>
-      <div id="dateExchangeSelector">
-        <label id="dateSelectorText"><strong>Select a Date: </strong>
-        </label>
-        <label id="smallDateSelectorText">
-          <strong>Date:</strong>
-        </label>
-        <input id='date-selector' class="dateInput" type="date" onchange=onDateChanged(value)>
+  <div class="container-fluid">
+    <form id="cardFormat">
+      <fieldset>
+        <div id="dateExchangeSelector">
+          <label id="dateSelectorText"><strong>Select a Date: </strong>
+          </label>
+          <label id="smallDateSelectorText">
+            <strong>Date:</strong>
+          </label>
+          <input id='date-selector' class="dateInput form-control" type="date" onchange=onDateChanged(value)>
+        </div>
+        <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency (compared to
+            USD):</strong></label>
+        <label id="smallExchangeRateText"><strong>Compare USD to:</strong></label>
+        <select name="exchageRateOptions" id="exchangeRateOptions" class="form-control mb-2"
+          onchange=onOptionChanged(value)>
+          <!-- Populated dynamically with currencies -->
+        </select>
+        <!-- Convert Button -->
+        <input id="save-btn" class="btn btn-primary float-end form-control" type="button" value="Convert" />
+      </fieldset>
+
+
+      <div id="theExchangeRate">
+        <p id="dollarText">One US Dollar =</p>
+        <h4 id="exchangeRateNumbers"></h4>
       </div>
-      <label for="exchangeRateOptions" id="exchnageRateText"><strong>Select a currency to compare to the USD -
-          US Dollar:</strong></label>
-      <label id="smallExchangeRateText"><strong>Compare USD to:</strong></label>
-      <select name="exchageRateOptions" id="exchangeRateOptions" class="dropdown w-50" onchange=onOptionChanged(value)>
-        <!-- Populated dynamically with currencies -->
-      </select>
-      <!-- Convert Button -->
-      <input id="save-btn" class="btn btn-primary float-end" type="button" value="Convert" />
-    </fieldset>
 
-
-    <div id="theExchangeRate">
-      <p id="dollarText">One US Dollar =</p>
-      <h4 id="exchangeRateNumbers"></h4>
-    </div>
-
-  </form>
-
-
+    </form>
+  </div>
 
 
   <!-- Currency history -->
@@ -79,6 +80,9 @@
       </table>
       <div><button id="clearBtn" class="float-end btn btn-primary">Clear History</button></div>
     </div>
+  </div>
+
+  <div class="container-fluid">
 
 
     <div class="seperateIndex">

@@ -16,6 +16,10 @@ h3 {
   box-sizing: border-box;
 }
 
+body {
+  background-color: gainsboro;
+}
+
 #cardFormat {
   margin: 50px;
   padding: 70px;
@@ -23,6 +27,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   box-shadow: 5px 0px 10px;
+  background-color: honeydew;
 }
 
 #exchangeRateOptions {
@@ -65,7 +70,7 @@ h3 {
 .card {
   width: 25%;
   margin: 20px;
-
+  background-color: honeydew;
   box-shadow: 5px 0px 10px;
 }
 
