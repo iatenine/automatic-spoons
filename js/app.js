@@ -250,7 +250,6 @@ function populateCard(prefix, index) {
 const addOption = (currencyCode, currencyName) => {
   const opt = $("<option>" + currencyCode + " - " + currencyName + "</option>");
   const select = $("#exchangeRateOptions");
-  select.addClass("dropdown-item");
   select.append(opt);
 };
 
@@ -337,3 +336,17 @@ $("#date-selector").on("change", updateButton);
 getStocks("dow");
 getStocks("spx");
 getStocks("ndaq");
+
+$(document).ready(function () {
+  // Set today's date as default
+  const today = new Date();
+  const date =
+    today.getFullYear().toString() +
+    "-" +
+    (today.getMonth() + 1 < 10 ? 0 : "") +
+    (today.getMonth() + 1).toString() +
+    "-" +
+    today.getDate().toString();
+  $("#date-selector").val(date);
+  updateButton();
+});
